@@ -1,0 +1,315 @@
+/* ============================================================================
+ * Comments Plugin Styles
+ * ============================================================================
+ */
+
+/* Plugin Specific styles */
+.toolbar {
+  z-index: 1030;
+}
+
+.doc-content {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page {
+  width: 100%;
+  max-width: 210mm;
+  min-height: 297mm;
+  background: #fff;
+  margin-bottom: 2rem;
+  padding: 20mm;
+  box-shadow: 0 25px 50px 0 rgba(20,22,28,.25);
+}
+
+.comments-panel {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: auto;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.comments-panel .previous-comment {
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 6px;
+  border: 1px solid #E5E5E5;
+  background: #F7F8FA;
+  box-shadow: 0px 0px 5px 1px #e5e5e5;
+  transition: background 0.2s ease;
+  border-left: 4px solid var(--thread-color, #ffe066); /* thread color border */
+}
+
+.comments-panel .previous-comment.active {
+  border: 1px solid #015AD7;
+  background: #FFF;
+}
+
+.comments-panel .previous-comment .comment-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.comments-panel .previous-comment .comment-header .comment-actions .c-actions .c-action {
+  border-radius: 6px;
+  border: 1px solid #E5E5E5;
+  padding: 8px;
+}
+
+.comments-panel .previous-comment .avatar-name {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.comments-panel .previous-comment .c-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comments-panel .previous-comment .c-title {
+  font-weight: 600;
+}
+
+.comments-panel .previous-comment .c-time {
+  font-size: 12px;
+  color: #999;
+  margin-left: auto;
+}
+
+/* Color dot next to author */
+.color-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Reply-to label */
+.reply-to {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Replies block */
+.replies:empty {
+  display: none;
+}
+
+.replies {
+  margin-top: 6px;
+  margin-left: 16px;
+  border-left: 2px solid #eee;
+  padding-left: 8px;
+}
+
+.replies .previous-comment {
+  background: #f8f9fa;
+  border-radius: .5rem;
+  padding: .75rem 1rem;
+  margin-bottom: .5rem;
+  border-left: 3px solid var(--thread-color, #eee);
+}
+
+/* Composer */
+.comment-footer {
+  width: 100%;
+}
+
+.comment-footer .reply-input,
+.comment-footer .comment-edit-textarea {
+  border-radius: 2rem;
+  resize: none;
+  transition: all 0.2s ease;
+  padding: .6rem 1rem;
+  font-size: 0.95rem;
+  min-height: 38px;
+}
+
+.comment-footer .comment-edit-textarea:focus,
+.comment-footer .reply-input:focus {
+  border-radius: .75rem;
+  min-height: 80px;
+}
+
+.comment-footer .comment-reply .action-buttons {
+  margin-top: 0.25rem;
+  transition: opacity 0.2s ease;
+}
+
+/* Highlight spans inside CKEditor */
+.highlight {
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0 2px;
+  transition: background-color 0.3s ease;
+  background-color: #ffe06655; /* semi-transparent */
+}
+
+.highlight:hover {
+  background-color: #ffe066;
+}
+
+.ckc-anchor { background-color: #ffe06655; border-radius: 2px; cursor: pointer; }
+.ckc-anchor:hover { background-color: #ffe066; }
+
+/* Flash animation */
+.previous-comment.flash {
+  animation: flash-bg 1s ease;
+}
+
+@keyframes flash-bg {
+  0%   { background-color: #fff3cd; }
+  100% { background-color: #fff; }
+}
+
+.previous-comment.flash {
+  background: #fff3cd;
+  transition: background 0.5s;
+}
+
+.review-mode-banner {
+  background: #fff3cd;
+  border-bottom: 1px solid #ffeeba;
+  color: #856404;
+}
+
+
+/* Suggest Mode pill -------------------------------------------------------- */
+.tc-pill-host { position: relative; } /* ensure absolute children anchor here */
+
+.tc-suggest-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.tc-suggest-pill.on {
+  background: #e9f5ff;
+  border-color: #5ba4ff;
+  color: #005fcc;
+}
+.tc-suggest-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.4;
+}
+.tc-suggest-pill.on .dot {
+  opacity: 1;
+}
+
+
+.tc-suggest-pill.on  { border-color: rgba(25,135,84,.35); }
+.tc-suggest-pill.on .dot { background: #198754; }  /* bootstrap-ish green */
+
+.tc-suggest-pill:hover { box-shadow: 0 2px 4px rgba(0,0,0,.08); }
+
+
+.previous-comment.isuggest:before {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 9px;
+}
+
+.previous-comment.isuggest.approved:before {
+    content: "Approved";
+    color: green;
+}
+
+.previous-comment.isuggest.denied:before {
+    content: "Denied";
+    color: red;
+}
+
+
+.previous-comment {
+    position: relative;
+}
+
+.mention {
+  background-color: rgba(66, 133, 244, 0.15);
+  border-radius: 3px;
+  padding: 0 3px;
+  color: #3367d6;
+  cursor: pointer;
+}
+
+.mention:hover {
+  background-color: rgba(66, 133, 244, 0.3);
+}
+
+#editor-toolbar .cke_combo_button{
+  max-width: 80px;
+}
+
+.previous-comment {
+  position: relative;
+}
+
+.remarks-toggle {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #888;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.remarks-toggle:hover { color: #111; transform: scale(1.1); }
+.remarks-toggle.active { color: #0078ff; }
+
+.remarks-box {
+  display: none;
+  position: relative;
+  background: #f8f9fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 6px 8px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #555;
+  transition: all 0.2s ease-in-out;
+}
+
+.remarks-box.open {
+  display: block;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.remark-action {
+    text-transform: capitalize;
+}

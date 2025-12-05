@@ -1,0 +1,56 @@
+<!-- Sidebar Wrapper -->
+<div class="col-lg-4 with-scrollbar" style="height: calc(100vh - 180px);">
+  <div id="icomments-panel" class="icomments-panel h-100" style="overflow-y:auto;">
+    <!-- icomments will be rendered here -->
+  </div>
+</div>
+
+<!-- Templates -->
+<template id="icomment-template">
+  <div class="previous-icomment" data-uid="">
+    <div class="icomment-header">
+      <div class="avatar-name">
+        <div class="c-avatar">
+          <a href="#" class="avatar" data-bs-toggle="tooltip" aria-label="">
+            <img src="" alt="User Avatar" class="rounded-circle">
+          </a>
+        </div>
+        <div class="c-title"></div>
+        <div class="c-time"></div>
+      </div>
+      <div class="icomment-actions">
+        <div class="c-actions dropdown ms-auto">
+          <a href="#" class="text-secondary c-action" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-three-dots"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#" data-action="reply">Reply</a></li>
+            <li><a class="dropdown-item" href="#" data-action="edit">Edit</a></li>
+            <li><a class="dropdown-item" href="#" data-action="delete">Delete</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="icomment-content"></div>
+    <!-- Replies container -->
+    <div class="replies ms-2 mt-1"></div>
+  </div>
+</template>
+
+<template id="footer-template">
+  <div class="icomment-footer">
+    <div class="icomment-reply d-flex align-items-start gap-2 my-3">
+      <!-- Avatar -->
+      <img src="https://i.pravatar.cc/50?img=12" alt="User Avatar" class="rounded-circle" width="40" height="40">
+
+      <!-- Input & Actions -->
+      <div class="flex-grow-1">
+        <textarea class="form-control reply-input" rows="1" placeholder="Add Reply"></textarea>
+        <div class="d-flex justify-content-end gap-2 mt-2 action-buttons d-none">
+          <button type="button" class="btn btn-sm btn-light" data-action="composer-cancel">Cancel</button>
+          <button type="button" class="btn btn-sm btn-primary" data-action="composer-post" disabled>Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
